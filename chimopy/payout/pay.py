@@ -16,7 +16,9 @@ class Pay:
         pass
 
     def chimoney(self, payment_details, sub_account='', turn_off_notification=False):
-        uri= 'v0.2/payouts/chimoney'
+        ''' Payout Chimoney'''
+        # payment_details == array of objects with payout information eg. email, value to send
+        uri= 'v0.2/payouts/bank'
         # note difference uri and url
         url= f'{self.api_url}/{uri}'
         payload={
@@ -35,6 +37,21 @@ class Pay:
         url= f'{self.api_url}/{uri}'
         pass
 
+    
+    def bank(self, payment_details, sub_account='', turn_off_notification=False):
+        uri = 'v0.2/payouts/gift-card'
+        url= f'{self.api_url}/{uri}'
+        payload = {
+            "banks": payment_details
+            }
+        if sub_account != '':
+            payload['subAccount'] = sub_account
+        if turn_off_notification != False:
+            payload['turnOffNotification'] = True
+
+        response = requests.post(url, headers=headers, json=payload)
+        response.json()
+        pass
 
 
         
