@@ -2,17 +2,22 @@ import requests
 import json 
 
 class Pay:
-    def __init__(self):
+    def __init__(self, api_key, api_url):
+        self.api_key = api_key
+        self.api_url = api_url
         pass
 
     def airtime(self, country_to_send, phone_number, value_in_USD, sub_account='', turn_off_notification=False):
         pass
 
     def chimoney(self, payment_details, sub_account='', turn_off_notification=False):
+        uri= 'v0.2/payouts/chimoney'
+        # note difference uri and url
+        url= f'{self.api_url}/{uri}'
         headers = {
             "accept": "application/json",
             "content-type": "application/json",
-            "X-API-KEY": "8db691db5747c3b0f1bbbfa81d61bef2c0dc8dae7be2557fbb8db783451cddeb"
+            "X-API-KEY": f"{self.api_key}"
         }
         payload={
             "chimoneys": payment_details
@@ -22,20 +27,16 @@ class Pay:
         if turn_off_notification != False:
             payload['turnOffNotification'] = True
         response = requests.post(url, headers=headers, json=payload)
-        print(response.json())
-pay_array_of_objects = [
-        {
-            "email": "mail@mailer10.ca",
-            "valueInUSD": 1
-        },
-        {
-            "twitter": "@TWITTERNAME",
-            "valueInUSD": 1
-        }
-    ]
+        return response.json()
+
+    
+
+
+
+
         
-obj = Pay()
+# obj = Pay()
 # obj.airtime(turn_off_notification=False, country_to_send='Ghana', phone_number='254712345678', value_in_USD=3, sub_account='Antony Gakuru')
-obj.chimoney(
-    payment_details=pay_array_of_objects,   
-)
+# obj.chimoney(
+#     payment_details=pay_array_of_objects,   
+# )
