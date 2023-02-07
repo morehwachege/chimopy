@@ -5,6 +5,11 @@ class Pay:
     def __init__(self, api_key, api_url):
         self.api_key = api_key
         self.api_url = api_url
+        self.headers = {
+            "accept": "application/json",
+            "content-type": "application/json",
+            "X-API-KEY": f"{self.api_key}"
+        }
         pass
 
     def airtime(self, country_to_send, phone_number, value_in_USD, sub_account='', turn_off_notification=False):
@@ -14,11 +19,6 @@ class Pay:
         uri= 'v0.2/payouts/chimoney'
         # note difference uri and url
         url= f'{self.api_url}/{uri}'
-        headers = {
-            "accept": "application/json",
-            "content-type": "application/json",
-            "X-API-KEY": f"{self.api_key}"
-        }
         payload={
             "chimoneys": payment_details
         }
@@ -26,11 +26,14 @@ class Pay:
             payload['subAccount'] = sub_account
         if turn_off_notification != False:
             payload['turnOffNotification'] = True
-        response = requests.post(url, headers=headers, json=payload)
+        response = requests.post(url, headers=self.headers, json=payload)
         return response.json()
 
     
-
+    def giftcard(self, payment_details, sub_account='', turn_off_notification=False):
+        uri = 'v0.2/payouts/gift-card'
+        url= f'{self.api_url}/{uri}'
+        pass
 
 
 
