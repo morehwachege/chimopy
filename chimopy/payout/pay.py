@@ -94,7 +94,7 @@ class Pay:
     def giftcard(self, payment_details, sub_account='', turn_off_notification=False):
         uri = f'{self.api_version}/payouts/gift-card'
         url= f'{self.api_url}/{uri}'
-        # tbc, required auth token
+        # TODO: required auth token
         pass
 
 
