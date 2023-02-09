@@ -31,6 +31,8 @@ class Pay:
     
 
     def bank(self, payment_details, sub_account='', turn_off_notification=False):
+        ''' Payout to bank'''
+
         uri = f'{self.api_version}/payouts/bank'
         url= f'{self.api_url}/{uri}'
         # example payment_details array
@@ -55,6 +57,39 @@ class Pay:
         response = requests.post(url, headers=self.headers, json=payload)
         return response.json()
 
+
+    def momos(self, payment_details, sub_account='', turn_off_notification=False):
+        ''' Payout mobile money'''
+
+        uri = f'{self.api_version}/payouts/mobile-money'
+        url= f'{self.api_url}/{uri}'
+        payload = {
+            "momos": payment_details
+            }
+        if sub_account != '':
+            payload['subAccount'] = sub_account
+        if turn_off_notification != False:
+            payload['turnOffNotification'] = True
+
+        response = requests.post(url, headers=self.headers, json=payload)
+        return response.json()
+
+
+    def status(self, chiRef, sub_account='', turn_off_notification=False):
+        ''' Payout status'''
+        uri = f'{self.api_version}/payouts/status'
+        url= f'{self.api_url}/{uri}'
+
+        payload = {
+            'chiRef': chiRef,
+        }
+        if sub_account != '':
+            payload['subAccount'] = sub_account
+        if turn_off_notification != False:
+            payload['turnOffNotification'] = True
+        response = requests.post(url, headers=self.headers, json=payload)
+        return response.json()
+
     
     def giftcard(self, payment_details, sub_account='', turn_off_notification=False):
         uri = f'{self.api_version}/payouts/gift-card'
@@ -68,4 +103,7 @@ class Pay:
         # note difference uri and url
         url= f'{self.api_url}/{uri}'
         # broken api endpoint
+        pass
+
+    def initiate(self):
         pass
