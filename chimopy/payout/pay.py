@@ -1,8 +1,8 @@
 import requests
-import json 
 
 class Pay:
     def __init__(self, api_key, api_url):
+        # self.api_key = api_key
         self.api_key = api_key
         self.api_url = api_url
         self.headers = {
@@ -14,25 +14,10 @@ class Pay:
         pass
 
 
-    def airtime(self, payment_details, sub_account='', turn_off_notification=False):
-        uri= f'{self.api_version}/payouts/airtime'
-        # note difference uri and url
-        url= f'{self.api_url}/{uri}'
-        payload = {
-            "airtimes": payment_details
-            }
-        if sub_account != '':
-            payload['subAccount'] = sub_account
-        if turn_off_notification != False:
-            payload['turnOffNotification'] = True
-        response = requests.post(url, headers=self.headers, json=payload)
-        return response.json()
-
-
     def chimoney(self, payment_details, sub_account='', turn_off_notification=False):
         ''' Payout Chimoney'''
         # payment_details == array of objects with payout information eg. email, value to send
-        uri= f'{self.api_version}/payouts/bank'
+        uri= f'{self.api_version}/payouts/chimoney'
         # note difference uri and url
         url= f'{self.api_url}/{uri}'
         payload={
@@ -44,14 +29,8 @@ class Pay:
             payload['turnOffNotification'] = True
         response = requests.post(url, headers=self.headers, json=payload)
         return response.json()
-
     
-    def giftcard(self, payment_details, sub_account='', turn_off_notification=False):
-        uri = f'{self.api_version}/payouts/gift-card'
-        url= f'{self.api_url}/{uri}'
-        pass
 
-    
     def bank(self, payment_details, sub_account='', turn_off_notification=False):
         uri = f'{self.api_version}/payouts/bank'
         url= f'{self.api_url}/{uri}'
@@ -76,3 +55,18 @@ class Pay:
 
         response = requests.post(url, headers=self.headers, json=payload)
         return response.json()
+
+    
+    def giftcard(self, payment_details, sub_account='', turn_off_notification=False):
+        uri = f'{self.api_version}/payouts/gift-card'
+        url= f'{self.api_url}/{uri}'
+        # tbc, required auth token
+        pass
+
+
+    def airtime(self, payment_details, sub_account='', turn_off_notification=False):
+        uri= f'{self.api_version}/payouts/airtime'
+        # note difference uri and url
+        url= f'{self.api_url}/{uri}'
+        # broken api endpoint
+        pass
