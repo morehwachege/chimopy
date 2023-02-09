@@ -11,7 +11,6 @@ class Pay:
             "X-API-KEY": f"{self.api_key}"
         }
         self.api_version = 'v0.2'
-        pass
 
 
     def chimoney(self, payment_details, sub_account='', turn_off_notification=False):
