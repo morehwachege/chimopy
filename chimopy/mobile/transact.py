@@ -1,5 +1,6 @@
 import requests 
 
+# mobile-money transactions
 
 class Transaction:
     def __init__(self, api_key, api_url):
@@ -13,10 +14,14 @@ class Transaction:
         self.api_version = 'v0.2'
 
     def pay(self, payment_details, sub_account=''):
-        ' Pay using mobile money'
+        '''Pay using mobile money'''
+
         uri = f'{self.api_version}/collections/mobile-money/collect'
         url = f'{self.api_url}/{uri}'
         payload = payment_details
+        if sub_account != '':
+            payload['subAccount'] = sub_account
+
         response = requests.post(url, headers=self.headers, json=payload)
         return response.json()
 
@@ -31,3 +36,19 @@ class Transaction:
 
         response = requests.post(url, headers=self.headers, json=payload)
         return response.json()
+
+
+    def verify(self, id, sub_account=''):
+        ''' Verify mobile payment '''
+        uri = f'{self.api_version}/collections/mobile-money/verify'
+        url = f'{self.api_url}/{uri}'
+
+        payload = {
+            'id': id
+        }
+        if sub_account != '':
+            payload['subAccount'] = sub_account
+        response = requests.post(url, headers=self.headers, json=payload)
+        return response.json()
+
+
