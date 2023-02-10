@@ -1,7 +1,7 @@
 # from chimopy.payout.pay import Pay
 from chimopy.mobile.transact import Transaction
-from chimopy.info.info import Info
-from chimopy.account import Account, SubAccount
+from chimopy.info import Info
+from chimopy.accounts import Account, SubAccount
 
 
 pay_array_of_objects = [
