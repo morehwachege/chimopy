@@ -1,9 +1,9 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
-[![Organization](https://img.shields.io/badge/Org-morehwachege-blue.svg)](https://github.com/TralahTek)
+[![Organization](https://img.shields.io/badge/Org-morehwachege-blue.svg)](https://github.com/morehwachege)
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 [![PyPI pyversions](https://img.shields.io/pypi/pyversions/ansicolortags.svg)](https://pypi.python.org/pypi/ansicolortags/)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/TralahM/pull/)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/morehwachege/pull/)
 
 [![GitHub version](https://badge.fury.io/gh/Naereen%2FStrapDown.js.svg)](https://github.com/morehwachege/chimopy).
 
@@ -32,23 +32,23 @@ from chimopy.<API> import <API Class>
 
 ***API***
 The following APIs are supported:
-- [ ] Account
-- [ ] Info
-- [ ] Mobile-Money
-- [ ] Payment
+- [x] Account
+- [x] Info
+- [x] Mobile-Money
+- [ ] Payment, all except airtime
 - [ ] Redeem
-- [ ] Sub Account
-- [ ] Wallet
+- [x] Sub Account
+- [x] Wallet
 
 ***API Class***
 The following are the corresponding API classes:
-- [ ] Account
-- [ ] Info
-- [ ] Mobile-Money
-- [ ] Payment
-- [ ] Redeem
-- [ ] Sub Account
-- [ ] Wallet
+- [x] Account
+- [x] Info
+- [x] Transaction
+- [x] Pay
+- [x] Redeem
+- [x] SubAccount
+- [x] Wallet
 
 
 
