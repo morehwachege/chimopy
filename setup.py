@@ -7,7 +7,7 @@ with open("README.md", "r") as ld:
 
 setuptools.setup(
     name="chimopy",
-    version="0.0.1",
+    version="0.0.2",
     author="Antony Gakuru",
     author_email="antony123muriithi@gmail.com",
     description="A Python wrapper for Chimoney APIs abstracting raw https requests",
@@ -21,12 +21,6 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     install_requires=[
-        "certifi",
-        "chardet",
-        "future",
-        "idna",
-        "requests",
-        "six",
-        "urllib3",
+        "requests"
     ],
 )
