@@ -22,7 +22,7 @@ class Wallet:
             payload['subAccount'] = sub_account
 
         response = requests.post(url, headers=self.headers, json=payload)
-        return response.json()
+        return response
 
     
     def single_wallet(self, wallet_id, sub_account=''):
@@ -35,7 +35,7 @@ class Wallet:
             payload['subAccount'] = sub_account
         
         response = requests.post(url, headers=self.headers, json=payload)
-        return response.json()
+        return response
 
 
     def transfer(self, receiver, wallet, amount, sub_account=''):
@@ -51,4 +51,4 @@ class Wallet:
             payload['subAccount'] = sub_account
         
         response = requests.post(url, headers=self.headers, json=payload)
-        return response.json()
+        return response

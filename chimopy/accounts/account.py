@@ -23,7 +23,7 @@ class Account:
             payload['subAccount'] = sub_account
         
         response = requests.post(url, headers=self.headers, json=payload)
-        return response.json()
+        return response
 
 
     def all_transactions(self, sub_account=''):
@@ -36,7 +36,7 @@ class Account:
             payload['subAccount'] = sub_account
             
         response = requests.post(url, headers=self.headers, json=payload)
-        return response.json()
+        return response
     
 
     def single_transaction(self, id, sub_account=''):
@@ -49,7 +49,7 @@ class Account:
             payload['subAccount'] = sub_account
             
         response = requests.post(url, headers=self.headers, json=payload)
-        return response.json()
+        return response
 
     
     def transfer(self, receiver, amount, wallet, sub_account='' ):
@@ -65,7 +65,7 @@ class Account:
             payload['subAccount'] = sub_account
 
         response = requests.post(url, headers=self.headers, json=payload)
-        return response.json()
+        return response
 
     
     def delete_transaction(self, chi_ref, sub_account=''):
@@ -75,7 +75,7 @@ class Account:
             url += f'&subAccount={sub_account}'
 
         response = requests.delete(url, headers=self.headers)
-        return response.json()
+        return response
 
         
 class SubAccount:
@@ -99,7 +99,7 @@ class SubAccount:
             'name': name
         }
         response = requests.post(url, headers=self.headers, json=payload)
-        return response.json()
+        return response
 
     
     def delete(self, id):
@@ -111,7 +111,7 @@ class SubAccount:
         }
 
         response = requests.delete(url, headers=self.headers, json=payload)
-        return response.json()
+        return response
 
 
     def details(self, id):
@@ -121,7 +121,7 @@ class SubAccount:
         url= f'{self.api_url}/{uri}'
         response = requests.get(url, headers=self.headers, json=payload)
 
-        return response.json()
+        return response
 
     
     def associated(self):
@@ -130,5 +130,5 @@ class SubAccount:
         url= f'{self.api_url}/{uri}'
 
         response = requests.get(url, headers=self.headers)
-        return response.json()
+        return response
 

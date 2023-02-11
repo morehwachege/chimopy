@@ -23,7 +23,7 @@ class Transaction:
             payload['subAccount'] = sub_account
 
         response = requests.post(url, headers=self.headers, json=payload)
-        return response.json()
+        return response
 
     def transactions(self, sub_account='', turn_off_notification=False):
         ''' List all mobile money transactions '''
@@ -35,7 +35,7 @@ class Transaction:
             payload['subAccount'] = sub_account
 
         response = requests.post(url, headers=self.headers, json=payload)
-        return response.json()
+        return response
 
 
     def verify(self, id, sub_account=''):
@@ -49,6 +49,6 @@ class Transaction:
         if sub_account != '':
             payload['subAccount'] = sub_account
         response = requests.post(url, headers=self.headers, json=payload)
-        return response.json()
+        return response
 
 

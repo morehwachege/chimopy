@@ -27,7 +27,7 @@ class Pay:
         if turn_off_notification != False:
             payload['turnOffNotification'] = True
         response = requests.post(url, headers=self.headers, json=payload)
-        return response.json()
+        return response
     
 
     def bank(self, payment_details, sub_account='', turn_off_notification=False):
@@ -55,7 +55,7 @@ class Pay:
             payload['turnOffNotification'] = True
 
         response = requests.post(url, headers=self.headers, json=payload)
-        return response.json()
+        return response
 
 
     def momos(self, payment_details, sub_account='', turn_off_notification=False):
@@ -72,7 +72,7 @@ class Pay:
             payload['turnOffNotification'] = True
 
         response = requests.post(url, headers=self.headers, json=payload)
-        return response.json()
+        return response
 
 
     def status(self, chiRef, sub_account='', turn_off_notification=False):
@@ -88,7 +88,7 @@ class Pay:
         if turn_off_notification != False:
             payload['turnOffNotification'] = True
         response = requests.post(url, headers=self.headers, json=payload)
-        return response.json()
+        return response
 
     
     def giftcard(self, payment_details, sub_account='', turn_off_notification=False):

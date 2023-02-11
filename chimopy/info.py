@@ -18,7 +18,7 @@ class Info:
         uri= f'{self.api_version}/info/airtime-countries'
         url= f'{self.api_url}/{uri}'
         response = requests.get(url, headers=self.headers)
-        return response.json()
+        return response
 
 
     def assets(self, country_code=''):
@@ -27,7 +27,7 @@ class Info:
         uri= f'{self.api_version}/info/assets?countryCode={country_code}'
         url= f'{self.api_url}/{uri}'
         response = requests.get(url, headers=self.headers)
-        return response.json()
+        return response
 
     
     def banks(self, country_code):
@@ -36,7 +36,7 @@ class Info:
         uri= f'{self.api_version}/info/country-banks?countryCode={country_code}'
         url= f'{self.api_url}/{uri}'
         response = requests.get(url, headers=self.headers)
-        return response.json()
+        return response
 
 
     def convert_local(self, origin_currency, amount_in_origin_currency):
@@ -45,7 +45,7 @@ class Info:
         uri= f'{self.api_version}/info/local-amount-in-usd?originCurrency={origin_currency}&amountInOriginCurrency={amount_in_origin_currency}'
         url= f'{self.api_url}/{uri}'
         response = requests.get(url, headers=self.headers)
-        return response.json()
+        return response
 
     def convert_usd(self, destination_currency, amount_in_usd):
         """ Convert USD currency to local currency"""
@@ -53,7 +53,7 @@ class Info:
         uri= f'{self.api_version}/info/usd-amount-in-local?destinationCurrency={destination_currency}&amountInUSD={amount_in_usd}'
         url= f'{self.api_url}/{uri}'
         response = requests.get(url, headers=self.headers)
-        return response.json()
+        return response
     
     def momo(self):
         ''' Get supported mobile money code'''
@@ -71,4 +71,4 @@ class Info:
         }
         response = requests.post(url, headers=self.headers, json=payload)
 
-        return response.json()
+        return response
