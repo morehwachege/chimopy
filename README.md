@@ -29,6 +29,8 @@ python setup.py install
 ``` python
 from chimopy.<API> import <API Class>
 ```
+View [docs](./docs.md)
+
 
 ***API***
 The following APIs are supported:
